@@ -1,0 +1,6 @@
+1)As a user, I want to see the signup and login screens so that muliptle users can register and login to the forum for questions and answers.
+2)As a user, I want to go to the forum dashboard so that I can see a menu of existing categories 
+3)As a user, I want to select each category so that I can view the quetsions and answers related to it.
+4)As a user,I want to create new questions on each category so that I can see multiple questions 
+5) As a user, I can create multiple answers for the same question
+6)As a user, I can logout of the dashboard page so that I can login as another registered user
