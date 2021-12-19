@@ -20,12 +20,13 @@ function Auth () {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [retypePassword, setRetypePassword] = useState('');
+    let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
     const onSignIn = async (event) => {
         event.preventDefault();
         console.log(email)
         console.log(password)
-        let res = await fetch('http://localhost:3000/login', {
+        let res = await fetch('${apiUrl}/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +49,7 @@ function Auth () {
         console.log(email)
         console.log(password)
         console.log(retypePassword)
-        let res = await fetch('http://localhost:3000/signup', {
+        let res = await fetch('${apiUrl}/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

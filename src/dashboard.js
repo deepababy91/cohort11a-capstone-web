@@ -78,7 +78,7 @@ function Dashboard() {
     const fetchQuestionsForCategory = async (id) => {
         console.log('fetch questions for this category id', id);
         console.log('userId', userId)
-        let res = await fetch(`http://localhost:3000/api/v1/categories/${id}/questions?token=${token}&userId=${userId}`);
+        let res = await fetch(`${apiUrl}/api/v1/categories/${id}/questions?token=${token}&userId=${userId}`);
         let data = await res.json();
         console.log(data);
         data = data.reverse()
@@ -115,7 +115,7 @@ function Dashboard() {
     const fetchAnswersForQuestions =async(id) =>{
         console.log('fetch answers for this question id', id);
         console.log('userId', userId)
-        let res = await fetch(`http://localhost:3000/api/v1/categories/${selectedCategory}/questions/${id}/answers?token=${token}&userId=${userId}`);
+        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${id}/answers?token=${token}&userId=${userId}`);
         let data = await res.json();
         console.log(data);
         data = data.reverse()
