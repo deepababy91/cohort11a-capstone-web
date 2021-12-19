@@ -113,19 +113,20 @@ function Dashboard() {
         
     };
     const fetchAnswersForQuestions =async(id) =>{
-        {/*console.log('fetch answers for this question id', id);
+        console.log('fetch answers for this question id', id);
         console.log('userId', userId)
         let res = await fetch(`http://localhost:3000/api/v1/categories/${selectedCategory}/questions/${id}/answers?token=${token}&userId=${userId}`);
         let data = await res.json();
         console.log(data);
         data = data.reverse()
         setAnswers(data);
-    // setCategories(data);*/}
+    // setCategories(data);
 
     }
 
 
     const createANewAnswer = async () => {
+        console.log('create an answer for the question id', )
         // you will need something called selectedQuestion to keep a track of the question that has been selected
         // a state variable to store the answer text that the user types in
 
