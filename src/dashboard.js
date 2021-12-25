@@ -21,7 +21,8 @@ function Dashboard() {
 
     const [userId, setUserId] = useState();
 
-    let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+    //let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+    let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'||'https://cohort-capstone-api.herokuapp.com/';
 
 //to get the categories related to each logged in user or based on the token
     const fetchCategories = async () => {
