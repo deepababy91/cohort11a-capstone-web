@@ -9,7 +9,7 @@ function App() {
   const [questions,setQuestions]=useState()
   const [questionTxt,setQuestionTxt]=useState()
 
-  let apiUrl=process.env.REACT_APP_API_URL || 'http://localhost:3000'
+  let apiUrl=process.env.REACT_APP_API_URL || 'https://cohort-capstone-api.herokuapp.com'
 
   const fetchCategories=async ()=>{
     console.log('this will fetch the categories')
@@ -21,7 +21,7 @@ function App() {
 
   const  fetchQuestionsForCategory =async(id) =>{
       console.log('fetch questions for this category id ',id)
-      let res=await fetch (`http://localhost:3000/api/v1/categories/${id}/questions`)
+      let res=await fetch (`${apiUrl}/api/v1/categories/${id}/questions`)
       let data=await res.json()
       console.log(data)
       setQuestions(data)
