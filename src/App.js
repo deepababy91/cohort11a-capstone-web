@@ -27,7 +27,7 @@ function Auth () {
         event.preventDefault();
         console.log(email)
         console.log(password)
-        let res = await fetch('https://cohort-capstone-api.herokuapp.com/', {
+        let res = await fetch('https://cohort-capstone-api.herokuapp.com/login', {
          // let res = await fetch(`${apiUrl}/login`, {
             method: 'POST',
             headers: {
