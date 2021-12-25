@@ -20,7 +20,8 @@ function Auth () {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [retypePassword, setRetypePassword] = useState('');
-    let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+    //let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+    let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'||'https://cohort-capstone-api.herokuapp.com/';
 
     const onSignIn = async (event) => {
         event.preventDefault();
