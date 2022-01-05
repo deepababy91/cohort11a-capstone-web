@@ -23,7 +23,7 @@ function Dashboard() {
 
     //let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
     //let apiUrl = process.env.REACT_APP_API_URL||'https://cohort-capstone-api.herokuapp.com'||'http://localhost:3000';
-    let apiUrl = 'https://cohort-capstone-api.herokuapp.com';
+    let apiUrl = 'https://cohort-capstone-api.herokuapp.com'||'http://localhost:3000';
 
 //to get the categories related to each logged in user or based on the token
     const fetchCategories = async () => {
@@ -114,10 +114,10 @@ function Dashboard() {
 
         
     };
-    const fetchAnswersForQuestions =async(id) =>{
-        console.log('fetch answers for this question id', id);
+    const fetchAnswersForQuestions =async(questionId) =>{
+        console.log('fetch answers for this question id', questionId);
         console.log('userId', userId)
-        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${id}/answers?token=${token}&userId=${userId}`);
+        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${questionId}/answers?token=${token}&userId=${userId}`);
         let data = await res.json();
         console.log(data);
         data = data.reverse()
@@ -128,7 +128,7 @@ function Dashboard() {
 
 
     const createANewAnswer = async () => {
-        console.log('create an answer for the question id', )
+       
         // you will need something called selectedQuestion to keep a track of the question that has been selected
         // a state variable to store the answer text that the user types in
 
@@ -143,19 +143,20 @@ function Dashboard() {
         // Try to delete an answer
 
        
-      {/*}  console.log('create an answer for the question id', selectedQuestion)
+      console.log('create an answer for the question id', selectedQuestion)
 
-        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${selectedQuestion}/answers?token=${token}`, {
+        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${selectedQuestion}/answers?token=${token}&userId=${userId}`, {
+           
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({answerTxt: answerTxt})
+            body: JSON.stringify({answerTxt: answerTxt, userId:userId})
         });
     
         fetchAnswersForQuestions(selectedQuestion);
-    setAnswerTxt('')*/}
+    //setAnswerTxt('')
 
         
     };
@@ -252,8 +253,23 @@ function Dashboard() {
 
 
                                 <List
-                                    size="small"
-                                    // header={<div className={'font-bold'}>Answers List</div>}
+                                    size="large"
+                                     header={<div className={'font-bold'}>Answers List</div>}
+                                   /*  
+                                      bordered
+                                     dataSource={answers}
+                                     renderItem={answer => <List.Item>
+                            <div className={answer.id == selectedQuestion ? 'cursor-pointer text-blue-500 font-bold' : 'cursor-pointer'} onClick={() => {
+                                setSelectedQuestion(question.id);
+                                fetchAnswersForQuestions(question.id)
+                            }}>
+                                {question.name}
+                            </div>
+
+                        </List.Item>}
+                                     
+                                     */
+                                      
                                     footer={<div>
                                         <input value={answerTxt} onChange={(ev) => {
                                             setAnswerTxt(ev.currentTarget.value);
