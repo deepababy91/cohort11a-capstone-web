@@ -136,7 +136,7 @@ function Dashboard() {
         // 2. Once the call is successful
         // 3. Fetch the questions for a category again (reload the questions)
         // 4. done! console.log('create an answer for the question id', selectedQuestion)
-        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${selectedQuestion}/answers?token=${token}`, {
+        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${selectedQuestion}/answers?token=${token}&userId=${userId}`, {
              method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
