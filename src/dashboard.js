@@ -127,38 +127,25 @@ function Dashboard() {
     }
 
 
-    const createANewAnswer = async () => {
-       
-        // you will need something called selectedQuestion to keep a track of the question that has been selected
+      const createANewAnswer = async () => {
+               // you will need something called selectedQuestion to keep a track of the question that has been selected
         // a state variable to store the answer text that the user types in
 
-        // the usual fetch request / HINT : look up the stock API request
+        // the usual fetch request 
         // 1. Make a POST request to create an answer
         // 2. Once the call is successful
         // 3. Fetch the questions for a category again (reload the questions)
-        // 4. done!
-
-
-        // - Try to delete the question
-        // Try to delete an answer
-
-       
-      console.log('create an answer for the question id', selectedQuestion)
-
+        // 4. done! console.log('create an answer for the question id', selectedQuestion)
         let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${selectedQuestion}/answers?token=${token}&userId=${userId}`, {
-           
-            method: 'POST',
+             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify({answerTxt: answerTxt, userId:userId})
         });
-    
         fetchAnswersForQuestions(selectedQuestion);
-    //setAnswerTxt('')
-
-        
+        //setAnswerTxt('')       
     };
 
     const logout = async () => {
