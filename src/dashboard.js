@@ -117,7 +117,7 @@ function Dashboard() {
     const fetchAnswersForQuestions =async(questionId) =>{
         console.log('fetch answers for this question id', questionId);
         console.log('userId', userId)
-        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${questionId}/answers?token=${token}&userId=${userId}`);
+        let res = await fetch(`${apiUrl}/api/v1/categories/${selectedCategory}/questions/${questionId}/answers?token=${token}`);
         let data = await res.json();
         console.log(data);
         data = data.reverse()
